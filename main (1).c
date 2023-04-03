@@ -2,48 +2,45 @@
 
 int main()
 {
-while
-    (analog,1>170);
-
-    enable_servo(0);
-    set_servo_position(0,2035);
-   msleep(1000);
-enable_servo(2);  
-    set_servo_position(2,1131);
-  
-  //turning left
-
- motor(0,0);// left wheel
- motor(3,100);// right wheel
- msleep(450);
-
- motor(0,100);
- motor(3,100);
- msleep(1500);   
+    enable_servos (0);
     
- motor(0,100);
- motor(3,0);
- msleep(300);
+    analog(0);
     
- motor(0,100);
- motor(3,100);
- msleep(500);
-enable_servos(0); // Enable (turn on) all servo por 
-set_servo_position(0,1225); // set servo on port #0 to position 294.
-msleep(1500);
-    disable_servo(0);
-    msleep(500);
-    enable_servo(2); 
-    set_servo_position(2,1801);
-    msleep(1900);
-    enable_servo(0);
-        set_servo_position(0,2035);
+    create_connect();
+    create_drive_direct(80,80);
+    msleep(2000);
+    
+    set_servo_position(0,1024);
     msleep(1000);
-motor(0,-60);
-motor(3,-60);
-msleep(1500);
     
+    create_drive_direct(100,0);
+    msleep(1700);
     
- return 0;
+    create_drive_direct(100,100);
+    msleep(10000);
+    
+    set_servo_position(0,1600);
+        
+    create_drive_direct(100,100);
+    msleep(3900);
+    
+    set_servo_position(0,1000);
+    msleep(1200);
+    
+    create_drive_direct(-100,-100);
+    msleep(3000);
+    
+    create_drive_direct(100,-100);
+    msleep(3400);
+    
+
+    ;create_stop();
+    msleep(500);
+    
+    create_stop();
+        msleep(500);    
+    printf("Hello World\n");
+    create_disconnect();
+    return 0;
     
 }
